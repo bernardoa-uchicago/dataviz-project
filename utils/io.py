@@ -1,9 +1,13 @@
 import streamlit as st
 import pandas as pd
+import os
+
 
 
 @st.cache_data
 def load_data():
+    for file in os.listdir():
+        print(file)
     ICE_atd = pd.read_excel("../data/ICE_data.xlsx", sheet_name="ICE ATD")
     ICE_arrests = pd.read_excel("../data/ICE_data.xlsx", sheet_name="ICE-ERO Administrative Arrests")
     ICE_detentions = pd.read_excel("../data/ICE_data.xlsx", sheet_name="ICE Detentions")
